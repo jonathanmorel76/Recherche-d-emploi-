@@ -21,12 +21,11 @@
   --border:#E8E5DF;--border-soft:#F0EDE8;
   --text:#1C1C1C;--text-2:#555450;--text-3:#8C8A86;--text-4:#B5B3AF;
   --accent:#1A6B4A;--accent-light:#EAF4EF;--accent-hover:#155A3E;
-  --shadow-card:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
-  --shadow-hover:0 4px 20px rgba(0,0,0,.10),0 1px 4px rgba(0,0,0,.06);
+  --warn-bg:#FFFBEA;--warn-border:#FFE999;--warn-text:#946C00;
   --radius:10px;--radius-sm:6px;--radius-full:100px;
 }
 html,body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
-input,select,textarea{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:9px 12px;outline:none;transition:border-color .18s;width:100%}
+input,select,textarea{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:9px 12px;outline:none;transition:border-color .18s;width:100%;-webkit-appearance:none;appearance:none}
 input:focus,select:focus,textarea:focus{border-color:var(--accent)}
 input::placeholder{color:var(--text-4)}
 button{cursor:pointer;font-family:'DM Sans',sans-serif}
@@ -34,25 +33,34 @@ a{color:var(--accent);text-decoration:none}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
-header{background:var(--white);border-bottom:1px solid var(--border);padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.wordmark{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.4px}
+header{background:var(--white);border-bottom:1px solid var(--border);padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.wordmark{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:var(--text);letter-spacing:-.3px}
 .wordmark span{color:var(--accent)}
-.header-right{display:flex;align-items:center;gap:4px}
-.tab-btn{background:none;border:none;color:var(--text-3);font-size:14px;font-weight:500;padding:7px 14px;border-radius:var(--radius-sm);transition:background .15s,color .15s}
+.header-right{display:flex;align-items:center;gap:2px}
+.tab-btn{background:none;border:none;color:var(--text-3);font-size:14px;font-weight:500;padding:7px 12px;border-radius:var(--radius-sm);transition:background .15s,color .15s}
 .tab-btn.active{color:var(--text);background:var(--bg)}
 .tab-badge{background:var(--accent);color:#fff;border-radius:var(--radius-full);font-size:10px;font-weight:600;padding:1px 6px;margin-left:4px;display:inline-block;vertical-align:middle;line-height:16px}
 
-main{display:flex;gap:24px;max-width:1200px;margin:0 auto;padding:28px 24px;align-items:flex-start}
-aside{width:268px;flex-shrink:0;position:sticky;top:72px;display:flex;flex-direction:column;gap:12px}
+main{display:flex;gap:20px;max-width:1200px;margin:0 auto;padding:24px 20px;align-items:flex-start}
+aside{width:268px;flex-shrink:0;position:sticky;top:70px;display:flex;flex-direction:column;gap:10px}
 .content{flex:1;min-width:0}
 
-.panel{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.panel-title{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700;color:var(--text-3);letter-spacing:1px;margin-bottom:16px;text-transform:uppercase}
-.field-group{margin-bottom:14px}
-.field-label{display:block;font-size:11px;font-weight:600;color:var(--text-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.panel-title{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:1px;margin-bottom:14px;text-transform:uppercase}
+.field-group{margin-bottom:12px}
+.field-group:last-child{margin-bottom:0}
+.field-label{display:block;font-size:11px;font-weight:600;color:var(--text-3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-.ct-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+/* API key panel */
+.apikey-panel{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:var(--radius);padding:14px}
+.apikey-panel .panel-title{color:var(--warn-text)}
+.apikey-hint{font-size:11px;color:var(--warn-text);margin-top:6px;line-height:1.5}
+.apikey-hint a{color:var(--warn-text);text-decoration:underline}
+.apikey-ok{background:#EAF4EF;border:1px solid #A8D5BC;border-radius:var(--radius);padding:10px 14px;font-size:12px;color:var(--accent);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.apikey-change{background:none;border:none;color:var(--accent);font-size:11px;font-weight:600;text-decoration:underline;padding:0}
+
+.ct-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
 .ct-btn{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-full);color:var(--text-2);font-size:12px;font-weight:500;padding:5px 12px;transition:all .15s}
 .ct-btn.on-CDI{background:#EAF4EF;border-color:#A8D5BC;color:#1A6B4A}
 .ct-btn.on-CDD{background:#FFF3E8;border-color:#FFCA99;color:#C05A00}
@@ -61,42 +69,42 @@ aside{width:268px;flex-shrink:0;position:sticky;top:72px;display:flex;flex-direc
 .ct-btn.on-Alternance{background:#FFFBEA;border-color:#FFE999;color:#946C00}
 
 .tag{display:inline-flex;align-items:center;gap:3px;border-radius:var(--radius-full);padding:3px 10px;font-size:12px;font-weight:500}
-.tag-remove{background:none;border:none;font-size:14px;line-height:1;padding:0;cursor:pointer;opacity:.6}
-.tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
-.kw-row{display:flex;gap:7px}
-.kw-add-btn{background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:17px;width:38px;flex-shrink:0;transition:background .15s}
+.tag-remove{background:none;border:none;font-size:13px;line-height:1;padding:0;cursor:pointer;opacity:.55}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
+.kw-row{display:flex;gap:6px}
+.kw-add-btn{background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:18px;font-weight:300;width:38px;flex-shrink:0;transition:background .15s;-webkit-appearance:none}
 
-.btn-search{width:100%;background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:14px;font-weight:600;padding:11px;margin-top:6px;transition:background .15s,opacity .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-search{width:100%;background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:14px;font-weight:600;padding:12px;margin-top:4px;transition:background .15s,opacity .15s;display:flex;align-items:center;justify-content:center;gap:8px;-webkit-appearance:none}
 .btn-search:hover:not(:disabled){background:var(--accent-hover)}
-.btn-search:disabled{opacity:.45;cursor:not-allowed}
-.btn-export{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text-2);font-size:13px;font-weight:500;padding:9px;transition:border-color .15s,color .15s}
+.btn-search:disabled{opacity:.4;cursor:not-allowed}
+.btn-export{width:100%;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text-2);font-size:13px;font-weight:500;padding:10px;transition:border-color .15s,color .15s;-webkit-appearance:none}
 .btn-export:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
-.btn-export:disabled{opacity:.4;cursor:not-allowed}
-.btn-add{width:100%;background:none;border:1.5px dashed var(--border);border-radius:var(--radius-sm);color:var(--text-4);font-size:13px;padding:9px;transition:all .15s}
+.btn-export:disabled{opacity:.35;cursor:not-allowed}
+.btn-add{width:100%;background:none;border:1.5px dashed var(--border);border-radius:var(--radius-sm);color:var(--text-4);font-size:13px;padding:10px;transition:all .15s;-webkit-appearance:none}
 .btn-add:hover{border-color:var(--accent);color:var(--accent);border-style:solid}
 
-.status{border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.status{border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;margin-bottom:16px;display:flex;align-items:center;gap:8px;line-height:1.4}
 .status-ok{background:#EAF4EF;color:#1A6B4A;border:1px solid #A8D5BC}
 .status-err{background:#FEF2F2;color:#B91C1C;border:1px solid #FECACA}
 .status-loading{background:var(--white);color:var(--text-2);border:1px solid var(--border)}
 
-.empty{text-align:center;padding:72px 24px;border:1.5px dashed var(--border);border-radius:var(--radius);background:var(--white)}
-.empty-icon{font-size:28px;margin-bottom:14px;color:var(--border)}
+.empty{text-align:center;padding:64px 24px;border:1.5px dashed var(--border);border-radius:var(--radius);background:var(--white)}
+.empty-line{width:32px;height:2px;background:var(--border);margin:0 auto 16px}
 .empty p{color:var(--text-3);font-size:14px;line-height:1.7}
 
-.offers-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.offers-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .offers-count{font-size:13px;color:var(--text-3);font-weight:500}
-.offers-clear{background:none;border:none;color:var(--text-4);font-size:13px;transition:color .15s}
+.offers-clear{background:none;border:none;color:var(--text-4);font-size:13px}
 .offers-grid{display:grid;grid-template-columns:1fr;gap:10px}
 
-.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;transition:box-shadow .2s,border-color .2s;animation:fadeUp .28s ease both}
-.card:hover{box-shadow:var(--shadow-hover);border-color:#D5D1CB}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
-.card-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:3px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:box-shadow .2s,border-color .2s;animation:fadeUp .28s ease both}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.09),0 1px 4px rgba(0,0,0,.05);border-color:#D5D1CB}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:9px}
+.card-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px}
 .card-company{font-size:13px;color:var(--text-3)}
-.save-btn{background:none;border:none;font-size:16px;padding:2px;color:var(--text-4);transition:color .15s;flex-shrink:0}
+.save-btn{background:none;border:none;font-size:16px;padding:2px;color:var(--text-4);transition:color .15s;flex-shrink:0;line-height:1}
 .save-btn.saved,.save-btn:hover{color:var(--accent)}
-.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
 .tag-CDI{background:#EAF4EF;color:#1A6B4A}
 .tag-CDD{background:#FFF3E8;color:#C05A00}
 .tag-Freelance{background:#EEF2FF;color:#3D52A0}
@@ -106,13 +114,13 @@ aside{width:268px;flex-shrink:0;position:sticky;top:72px;display:flex;flex-direc
 .tag-salary{background:#EAF4EF;color:#1A6B4A}
 .card-desc{font-size:13px;color:var(--text-2);line-height:1.65;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}
 .expand-btn{background:none;border:none;color:var(--accent);font-size:12px;font-weight:500;padding:4px 0 0;cursor:pointer}
-.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border-soft)}
-.card-source{font-size:12px;color:var(--text-4)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:13px;padding-top:11px;border-top:1px solid var(--border-soft)}
+.card-source{font-size:11px;color:var(--text-4)}
 .offer-link{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-light);border-radius:var(--radius-full);padding:5px 14px;transition:background .15s}
 .offer-link:hover{background:#D3EBDF}
 
-.search-meta{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;font-size:12px;color:var(--text-3);line-height:1.85}
-.search-meta strong{color:var(--text-2);font-weight:600;display:block;margin-bottom:4px}
+.search-meta{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:13px 15px;font-size:12px;color:var(--text-3);line-height:1.85}
+.search-meta strong{color:var(--text-2);font-weight:600;display:block;margin-bottom:3px}
 
 #install-banner{display:none;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;align-items:center;gap:10px;justify-content:space-between}
 #install-banner.show{display:flex}
@@ -120,16 +128,15 @@ aside{width:268px;flex-shrink:0;position:sticky;top:72px;display:flex;flex-direc
 #install-btn{background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;white-space:nowrap}
 #install-close{background:none;border:none;color:var(--text-4);font-size:20px;line-height:1;padding:0}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(28,28,28,.45);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
-.modal{background:var(--white);border-radius:var(--radius);padding:24px;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.15)}
-.modal-title{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:18px}
-.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border-soft)}
+.modal-overlay{position:fixed;inset:0;background:rgba(28,28,28,.5);z-index:100;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{background:var(--white);border-radius:var(--radius);padding:22px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.modal-title{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:16px}
+.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-soft)}
 .btn-cancel{background:var(--bg);border:1.5px solid var(--border);color:var(--text-2);border-radius:var(--radius-sm);padding:8px 16px;font-size:13px;font-weight:500}
 .btn-confirm{background:var(--accent);border:none;border-radius:var(--radius-sm);color:#fff;font-size:13px;font-weight:600;padding:8px 18px}
 .btn-confirm:disabled{opacity:.4;cursor:not-allowed}
-textarea{resize:vertical;height:72px;font-size:13px}
+textarea{resize:vertical;height:70px;font-size:13px}
 .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite}
-.spinner-dark{border-color:rgba(28,28,28,.15);border-top-color:var(--text-2)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -141,16 +148,33 @@ textarea{resize:vertical;height:72px;font-size:13px}
 <div id="app"></div>
 <script>
 const DEF={keywords:["transport en commun","mobilité","cartographie","SIG","géomatique","GTFS","NeTEx","mobilités douces"],location:"Rouen",radius:30,minSalary:30000,contractTypes:["CDI"]};
-let S={filters:JSON.parse(JSON.stringify(DEF)),offers:[],saved:[],loading:false,tab:"search",log:"",error:"",lastSearch:null,expanded:new Set(),showModal:false,modalForm:{},newKw:"",deferredPrompt:null,showInstall:false};
-try{const p=JSON.parse(localStorage.getItem("tj")||"{}");if(p.saved)S.saved=p.saved;if(p.filters)S.filters={...DEF,...p.filters}}catch(e){}
-function save(){try{localStorage.setItem("tj",JSON.stringify({saved:S.saved,filters:S.filters}))}catch(e){}}
+let S={
+  filters:JSON.parse(JSON.stringify(DEF)),
+  offers:[],saved:[],
+  loading:false,tab:"search",
+  log:"",error:"",
+  lastSearch:null,expanded:new Set(),
+  showModal:false,modalForm:{},
+  showApiModal:false,
+  newKw:"",apiKeyInput:"",
+  deferredPrompt:null,showInstall:false
+};
+try{
+  const p=JSON.parse(localStorage.getItem("tj")||"{}");
+  if(p.saved)S.saved=p.saved;
+  if(p.filters)S.filters={...DEF,...p.filters};
+}catch(e){}
+
+function getKey(){return localStorage.getItem("tj_key")||""}
+function setKey(k){localStorage.setItem("tj_key",k.trim())}
+function persist(){try{localStorage.setItem("tj",JSON.stringify({saved:S.saved,filters:S.filters}))}catch(e){}}
 function x(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function ctClass(ct){return{CDI:"tag-CDI",CDD:"tag-CDD",Freelance:"tag-Freelance",Stage:"tag-Stage",Alternance:"tag-Alternance"}[ct]||"tag-meta"}
 
-function render(){document.getElementById("app").innerHTML=html();bind()}
+function render(){document.getElementById("app").innerHTML=buildApp();bindAll()}
 
-function html(){
-  return hdr()+`<main><aside>${filters()}${actions()}${S.lastSearch?meta():""}${install()}</aside><div class="content">${S.tab==="search"?search():saved()}</div></main>${S.showModal?modal():""}`;
+function buildApp(){
+  return hdr()+`<main><aside>${apiKeyBlock()}${filtersBlock()}${actionsBlock()}${S.lastSearch?metaBlock():""}${installBlock()}</aside><div class="content">${S.tab==="search"?searchTab():savedTab()}</div></main>${S.showModal?modalBlock():""}${S.showApiModal?apiModalBlock():""}`;
 }
 
 function hdr(){
@@ -160,55 +184,70 @@ function hdr(){
   </div></header>`;
 }
 
-function filters(){
+function apiKeyBlock(){
+  const key=getKey();
+  if(key){
+    return`<div class="apikey-ok">
+      <span>Clé API configurée</span>
+      <button class="apikey-change" id="change-key-btn">Modifier</button>
+    </div>`;
+  }
+  return`<div class="apikey-panel">
+    <div class="panel-title">Clé API requise</div>
+    <button class="btn-search" id="open-api-modal-btn" style="margin-top:0;background:#946C00">Configurer ma clé API</button>
+    <p class="apikey-hint">Nécessaire pour lancer les recherches.<br/><a href="https://console.anthropic.com/settings/keys" target="_blank">Obtenir une clé sur console.anthropic.com</a></p>
+  </div>`;
+}
+
+function filtersBlock(){
   const f=S.filters;
   return`<div class="panel"><div class="panel-title">Filtres</div>
   <div class="grid2">
-    <div class="field-group"><label class="field-label">Ville</label><input id="loc" value="${x(f.location)}" placeholder="Rouen"/></div>
-    <div class="field-group"><label class="field-label">Rayon km</label><input id="radius" type="number" value="${f.radius}" min="5" max="300"/></div>
+    <div class="field-group"><label class="field-label">Ville</label><input id="loc" value="${x(f.location)}" placeholder="Rouen" autocomplete="off"/></div>
+    <div class="field-group"><label class="field-label">Rayon km</label><input id="radius" inputmode="numeric" pattern="[0-9]*" value="${f.radius}" autocomplete="off"/></div>
   </div>
-  <div class="field-group"><label class="field-label">Salaire min € brut/an</label><input id="salary" type="number" value="${f.minSalary}" step="1000" min="20000"/></div>
+  <div class="field-group"><label class="field-label">Salaire min € brut/an</label><input id="salary" inputmode="numeric" pattern="[0-9]*" value="${f.minSalary}" autocomplete="off"/></div>
   <div class="field-group"><label class="field-label">Type de contrat</label>
     <div class="ct-wrap">${["CDI","CDD","Freelance","Stage","Alternance"].map(ct=>`<button class="ct-btn${f.contractTypes.includes(ct)?" on-"+ct:""}" data-ct="${ct}">${ct}</button>`).join("")}</div>
   </div>
   <div class="field-group"><label class="field-label">Mots-clés</label>
     <div class="tags-wrap">${f.keywords.map(kw=>`<span class="tag" style="background:var(--accent-light);color:var(--accent)">${x(kw)}<button class="tag-remove" data-kw="${x(kw)}">×</button></span>`).join("")}</div>
-    <div class="kw-row"><input id="new-kw" value="${x(S.newKw)}" placeholder="Ajouter un mot-clé"/><button class="kw-add-btn" id="add-kw">+</button></div>
+    <div class="kw-row"><input id="new-kw" value="${x(S.newKw)}" placeholder="Ajouter un mot-clé" autocomplete="off"/><button class="kw-add-btn" id="add-kw">+</button></div>
   </div>
-  <button class="btn-search" id="search-btn" ${S.loading?"disabled":""}>${S.loading?`<span class="spinner"></span> Recherche en cours`:"Lancer la recherche"}</button>
+  <button class="btn-search" id="search-btn" ${S.loading||!getKey()?"disabled":""}>${S.loading?`<span class="spinner"></span> Recherche en cours`:"Lancer la recherche"}</button>
   </div>`;
 }
 
-function actions(){
+function actionsBlock(){
   const ok=S.offers.length>0||S.saved.length>0;
   return`<button class="btn-export" id="export-btn" ${!ok?"disabled":""}>${window.XLSX?"Exporter en Excel":"Chargement…"}</button>
   <button class="btn-add" id="add-manual-btn">+ Ajouter une offre manuellement</button>`;
 }
 
-function meta(){
+function metaBlock(){
   const l=S.lastSearch;
-  return`<div class="search-meta"><strong>Dernière recherche</strong>${x(l.date)}<br/>${x(l.filters.location)} · ${l.filters.radius} km · ≥ ${l.filters.minSalary.toLocaleString("fr-FR")} €<br/>${x(l.filters.contractTypes.join(", "))}${l.info?`<br/><span style="color:var(--text-4)">${x(l.info)}</span>`:""}</div>`;
+  return`<div class="search-meta"><strong>Dernière recherche</strong>${x(l.date)}<br/>${x(l.filters.location)} · ${l.filters.radius} km · ≥ ${Number(l.filters.minSalary).toLocaleString("fr-FR")} €<br/>${x(l.filters.contractTypes.join(", "))}${l.info?`<br/><span style="color:var(--text-4)">${x(l.info)}</span>`:""}</div>`;
 }
 
-function install(){
+function installBlock(){
   return`<div id="install-banner" class="${S.showInstall?"show":""}"><p>Installer l'app sur votre écran d'accueil</p><button id="install-btn">Installer</button><button id="install-close">×</button></div>`;
 }
 
-function search(){
+function searchTab(){
   let h="";
   if(S.error) h+=`<div class="status status-err">${x(S.error)}</div>`;
-  else if(S.log) h+=`<div class="status ${S.loading?"status-loading":"status-ok"}">${S.loading?`<span class="spinner spinner-dark"></span>`:""}${x(S.log)}</div>`;
-  if(!S.loading&&!S.offers.length&&!S.error) h+=`<div class="empty"><div class="empty-icon">—</div><p>Configurez vos filtres et lancez une recherche<br/>pour découvrir les offres.</p></div>`;
-  if(S.offers.length) h+=`<div class="offers-header"><span class="offers-count">${S.offers.length} offre${S.offers.length>1?"s":""} trouvée${S.offers.length>1?"s":""}</span><button class="offers-clear" id="clear-btn">Effacer</button></div><div class="offers-grid">${S.offers.map((o,i)=>card(o,i)).join("")}</div>`;
+  else if(S.log) h+=`<div class="status ${S.loading?"status-loading":"status-ok"}">${S.loading?`<span class="spinner" style="border-color:rgba(28,28,28,.15);border-top-color:var(--text-2)"></span>`:""}${x(S.log)}</div>`;
+  if(!S.loading&&!S.offers.length&&!S.error) h+=`<div class="empty"><div class="empty-line"></div><p>Configurez vos filtres et lancez<br/>une recherche pour découvrir les offres.</p></div>`;
+  if(S.offers.length) h+=`<div class="offers-header"><span class="offers-count">${S.offers.length} offre${S.offers.length>1?"s":""} trouvée${S.offers.length>1?"s":""}</span><button class="offers-clear" id="clear-btn">Effacer</button></div><div class="offers-grid">${S.offers.map((o,i)=>cardBlock(o,i)).join("")}</div>`;
   return h;
 }
 
-function saved(){
-  if(!S.saved.length) return`<div class="empty"><div class="empty-icon">—</div><p>Aucun favori.<br/>Sauvegardez les offres qui vous intéressent.</p></div>`;
-  return`<div class="offers-header"><span class="offers-count">${S.saved.length} offre${S.saved.length>1?"s":""} sauvegardée${S.saved.length>1?"s":""}</span></div><div class="offers-grid">${S.saved.map((o,i)=>card(o,i)).join("")}</div>`;
+function savedTab(){
+  if(!S.saved.length) return`<div class="empty"><div class="empty-line"></div><p>Aucun favori.<br/>Sauvegardez les offres qui vous intéressent.</p></div>`;
+  return`<div class="offers-header"><span class="offers-count">${S.saved.length} offre${S.saved.length>1?"s":""} sauvegardée${S.saved.length>1?"s":""}</span></div><div class="offers-grid">${S.saved.map((o,i)=>cardBlock(o,i)).join("")}</div>`;
 }
 
-function card(o,i){
+function cardBlock(o,i){
   const sv=S.saved.some(s=>s._id===o._id),exp=S.expanded.has(o._id);
   return`<div class="card" style="animation-delay:${i*.04}s">
     <div class="card-header"><div><div class="card-title">${x(o.title)}</div><div class="card-company">${x(o.company||"")}</div></div>
@@ -224,26 +263,45 @@ function card(o,i){
   </div>`;
 }
 
-function modal(){
+function modalBlock(){
   const f=S.modalForm;
   return`<div class="modal-overlay" id="modal-overlay"><div class="modal"><div class="modal-title">Ajouter une offre</div>
-  ${[["m-title","Intitulé du poste *",f.title||""],["m-company","Entreprise *",f.company||""],["m-location","Localisation",f.location||"Rouen"],["m-salary","Salaire",f.salary||""],["m-url","URL",f.url||""],["m-date","Date de publication",f.datePosted||""]].map(([id,l,v])=>`<div class="field-group"><label class="field-label">${l}</label><input id="${id}" value="${x(v)}"/></div>`).join("")}
+  ${[["m-title","Intitulé du poste *",f.title||""],["m-company","Entreprise *",f.company||""],["m-location","Localisation",f.location||"Rouen"],["m-salary","Salaire",f.salary||""],["m-url","URL",f.url||""],["m-date","Date",f.datePosted||""]].map(([id,l,v])=>`<div class="field-group"><label class="field-label">${l}</label><input id="${id}" value="${x(v)}" autocomplete="off"/></div>`).join("")}
   <div class="field-group"><label class="field-label">Type de contrat</label><select id="m-ct">${["CDI","CDD","Freelance","Stage","Alternance"].map(ct=>`<option value="${ct}"${f.contractType===ct?" selected":""}>${ct}</option>`).join("")}</select></div>
   <div class="field-group"><label class="field-label">Description</label><textarea id="m-desc">${x(f.description||"")}</textarea></div>
   <div class="modal-footer"><button class="btn-cancel" id="modal-cancel">Annuler</button><button class="btn-confirm" id="modal-confirm">Ajouter</button></div>
   </div></div>`;
 }
 
-function bind(){
+function apiModalBlock(){
+  return`<div class="modal-overlay" id="api-modal-overlay"><div class="modal">
+    <div class="modal-title">Configurer la clé API Anthropic</div>
+    <div class="field-group">
+      <label class="field-label">Clé API</label>
+      <input id="api-key-input" type="password" value="${x(getKey())}" placeholder="sk-ant-api03-…" autocomplete="off"/>
+    </div>
+    <p style="font-size:12px;color:var(--text-3);margin-top:6px;line-height:1.6">
+      Votre clé est stockée localement sur cet appareil et n'est jamais partagée.<br/>
+      <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--accent)">Obtenir une clé → console.anthropic.com</a>
+    </p>
+    <div class="modal-footer">
+      <button class="btn-cancel" id="api-modal-cancel">Annuler</button>
+      <button class="btn-confirm" id="api-modal-confirm">Enregistrer</button>
+    </div>
+  </div></div>`;
+}
+
+// ── EVENTS ──
+function bindAll(){
   document.querySelectorAll("[data-tab]").forEach(e=>e.addEventListener("click",()=>{S.tab=e.dataset.tab;render()}));
   const loc=document.getElementById("loc"),rad=document.getElementById("radius"),sal=document.getElementById("salary"),nkw=document.getElementById("new-kw");
   if(loc)loc.addEventListener("input",()=>S.filters.location=loc.value);
-  if(rad)rad.addEventListener("input",()=>S.filters.radius=Number(rad.value));
-  if(sal)sal.addEventListener("input",()=>S.filters.minSalary=Number(sal.value));
-  if(nkw){nkw.addEventListener("input",()=>S.newKw=nkw.value);nkw.addEventListener("keydown",e=>{if(e.key==="Enter")addKw()})}
+  if(rad)rad.addEventListener("input",()=>{const v=parseInt(rad.value.replace(/\D/g,""));if(!isNaN(v))S.filters.radius=v});
+  if(sal)sal.addEventListener("input",()=>{const v=parseInt(sal.value.replace(/\D/g,""));if(!isNaN(v))S.filters.minSalary=v});
+  if(nkw){nkw.addEventListener("input",()=>S.newKw=nkw.value);nkw.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();addKw()}})}
   on("add-kw",addKw);
-  document.querySelectorAll("[data-kw]").forEach(e=>e.addEventListener("click",()=>{S.filters.keywords=S.filters.keywords.filter(k=>k!==e.dataset.kw);save();render()}));
-  document.querySelectorAll("[data-ct]").forEach(e=>e.addEventListener("click",()=>{const ct=e.dataset.ct,i=S.filters.contractTypes.indexOf(ct);i>=0?S.filters.contractTypes.splice(i,1):S.filters.contractTypes.push(ct);save();render()}));
+  document.querySelectorAll("[data-kw]").forEach(e=>e.addEventListener("click",()=>{S.filters.keywords=S.filters.keywords.filter(k=>k!==e.dataset.kw);persist();render()}));
+  document.querySelectorAll("[data-ct]").forEach(e=>e.addEventListener("click",()=>{const ct=e.dataset.ct,i=S.filters.contractTypes.indexOf(ct);i>=0?S.filters.contractTypes.splice(i,1):S.filters.contractTypes.push(ct);persist();render()}));
   on("search-btn",doSearch);
   on("clear-btn",()=>{S.offers=[];S.log="";render()});
   document.querySelectorAll("[data-save]").forEach(e=>e.addEventListener("click",()=>toggleSave(e.dataset.save)));
@@ -254,12 +312,19 @@ function bind(){
   if(ov)ov.addEventListener("click",e=>{if(e.target===ov)closeModal()});
   on("modal-cancel",closeModal);
   on("modal-confirm",submitModal);
+  // API key modal
+  on("open-api-modal-btn",()=>{S.showApiModal=true;render()});
+  on("change-key-btn",()=>{S.showApiModal=true;render()});
+  const aov=document.getElementById("api-modal-overlay");
+  if(aov)aov.addEventListener("click",e=>{if(e.target===aov){S.showApiModal=false;render()}});
+  on("api-modal-cancel",()=>{S.showApiModal=false;render()});
+  on("api-modal-confirm",()=>{const v=document.getElementById("api-key-input")?.value.trim();if(v){setKey(v);S.showApiModal=false;render()}});
   on("install-btn",()=>{if(S.deferredPrompt){S.deferredPrompt.prompt();S.deferredPrompt.userChoice.then(()=>{S.showInstall=false;render()})}});
   on("install-close",()=>{S.showInstall=false;render()});
 }
 
 function on(id,fn){const e=document.getElementById(id);if(e)e.addEventListener("click",fn)}
-function addKw(){const kw=(S.newKw||"").trim();if(kw&&!S.filters.keywords.includes(kw)){S.filters.keywords.push(kw);S.newKw="";save();render()}}
+function addKw(){const kw=(S.newKw||"").trim();if(kw&&!S.filters.keywords.includes(kw)){S.filters.keywords.push(kw);S.newKw="";persist();render()}}
 function closeModal(){S.showModal=false;S.modalForm={};render()}
 function submitModal(){
   const title=document.getElementById("m-title")?.value.trim(),company=document.getElementById("m-company")?.value.trim();
@@ -270,24 +335,31 @@ function submitModal(){
 function toggleSave(id){
   const offer=[...S.offers,...S.saved].find(o=>o._id===id);if(!offer)return;
   const i=S.saved.findIndex(s=>s._id===id);i>=0?S.saved.splice(i,1):S.saved.push(offer);
-  save();render();
+  persist();render();
 }
 
+// ── SEARCH ──
 async function doSearch(){
-  S.loading=true;S.error="";S.log="Recherche en cours sur France Travail, APEC, Welcome to the Jungle…";render();
+  const key=getKey();
+  if(!key){S.error="Clé API non configurée. Renseignez-la dans le panneau en haut à gauche.";render();return}
+  S.loading=true;S.error="";S.log="Recherche en cours…";render();
   const f=S.filters;
   try{
-    const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-      model:"claude-sonnet-4-20250514",max_tokens:4000,
-      system:`Tu es un assistant de veille emploi spécialisé dans les secteurs transport, mobilité, SIG et cartographie en France. Recherche des offres d'emploi actuelles sur les job boards publics (France Travail, APEC, Welcome to the Jungle, Indeed, LinkedIn). Retourne UNIQUEMENT un JSON valide sans markdown sans backtick sans texte autour. Format exact : {"offers":[{"title":"","company":"","location":"","salary":"","contractType":"CDI|CDD|Freelance|Stage|Alternance","description":"","url":"","source":"France Travail|APEC|Welcome to the Jungle|Indeed|LinkedIn|Autre","datePosted":""}],"searchInfo":""}. Fournis au moins 8 offres récentes avec URLs directes.`,
-      tools:[{"type":"web_search_20250305","name":"web_search"}],
-      messages:[{role:"user",content:`Critères : mots-clés ${f.keywords.join(", ")} · ${f.location} rayon ${f.radius}km · ≥${f.minSalary.toLocaleString("fr-FR")}€ brut/an · ${f.contractTypes.join(", ")} · secteurs transport en commun mobilité cartographie SIG GTFS NeTEx. Cherche sur France Travail APEC WTTJ Indeed LinkedIn. JSON uniquement.`}]
-    })});
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",max_tokens:4000,
+        system:`Tu es un assistant de veille emploi spécialisé dans les secteurs transport, mobilité, SIG et cartographie en France. Recherche des offres d'emploi actuelles sur les job boards publics (France Travail, APEC, Welcome to the Jungle, Indeed, LinkedIn). Retourne UNIQUEMENT un JSON valide sans markdown sans backtick sans texte autour. Format exact : {"offers":[{"title":"","company":"","location":"","salary":"","contractType":"CDI|CDD|Freelance|Stage|Alternance","description":"","url":"","source":"France Travail|APEC|Welcome to the Jungle|Indeed|LinkedIn|Autre","datePosted":""}],"searchInfo":""}. Fournis au moins 8 offres récentes avec URLs directes.`,
+        tools:[{"type":"web_search_20250305","name":"web_search"}],
+        messages:[{role:"user",content:`Critères : mots-clés ${f.keywords.join(", ")} · ${f.location} rayon ${f.radius}km · salaire minimum ${f.minSalary} euros brut par an · contrats ${f.contractTypes.join(", ")} · secteurs transport en commun mobilité cartographie SIG GTFS NeTEx. Cherche sur France Travail APEC WTTJ Indeed LinkedIn. JSON uniquement.`}]
+      })
+    });
     const data=await res.json();
-    if(!res.ok)throw new Error(data.error?.message||`Erreur ${res.status}`);
+    if(!res.ok)throw new Error(data.error?.message||`Erreur API ${res.status}`);
     let txt=data.content.filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json\s*/gi,"").replace(/```\s*/gi,"").trim();
     const j0=txt.indexOf("{"),j1=txt.lastIndexOf("}");
-    if(j0<0||j1<0)throw new Error("Réponse inattendue");
+    if(j0<0||j1<0)throw new Error("Réponse inattendue du modèle");
     const p=JSON.parse(txt.slice(j0,j1+1));
     S.offers=(p.offers||[]).map((o,i)=>({...o,_id:`${Date.now()}-${i}`}));
     S.lastSearch={date:new Date().toLocaleString("fr-FR"),filters:{...f,contractTypes:[...f.contractTypes],keywords:[...f.keywords]},info:p.searchInfo||""};
@@ -296,6 +368,7 @@ async function doSearch(){
   S.loading=false;render();
 }
 
+// ── EXPORT ──
 function doExport(){
   const X=window.XLSX;if(!X){alert("SheetJS non chargé.");return}
   const cols=[{l:"Intitulé du poste",k:"title"},{l:"Entreprise",k:"company"},{l:"Localisation",k:"location"},{l:"Salaire",k:"salary"},{l:"Contrat",k:"contractType"},{l:"Source",k:"source"},{l:"Date publication",k:"datePosted"},{l:"URL",k:"url"},{l:"Description",k:"description"}];
@@ -311,11 +384,12 @@ function doExport(){
   }
   mkSheet(S.offers,"Toutes les offres");mkSheet(S.saved,"Favoris");
   const now=new Date();
-  const ws2=X.utils.aoa_to_sheet([["TransitJobs — Export"],[""],["Date",now.toLocaleString("fr-FR")],["Localisation",`${S.filters.location} (${S.filters.radius} km)`],["Salaire min",`${S.filters.minSalary.toLocaleString("fr-FR")} €/an brut`],["Contrats",S.filters.contractTypes.join(", ")],["Mots-clés",S.filters.keywords.join(", ")],[""],["Offres trouvées",S.offers.length],["Favoris",S.saved.length]]);
+  const ws2=X.utils.aoa_to_sheet([["TransitJobs — Export"],[""],["Date",now.toLocaleString("fr-FR")],["Localisation",`${S.filters.location} (${S.filters.radius} km)`],["Salaire min",`${Number(S.filters.minSalary).toLocaleString("fr-FR")} EUR/an brut`],["Contrats",S.filters.contractTypes.join(", ")],["Mots-clés",S.filters.keywords.join(", ")],[""],["Offres trouvées",S.offers.length],["Favoris",S.saved.length]]);
   ws2["!cols"]=[{wch:20},{wch:55}];X.utils.book_append_sheet(wb,ws2,"Résumé");
   X.writeFile(wb,`transitjobs_${now.toISOString().slice(0,10)}.xlsx`);
 }
 
+// ── PWA ──
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();S.deferredPrompt=e;S.showInstall=true;render()});
 window.addEventListener("appinstalled",()=>{S.showInstall=false;S.deferredPrompt=null;render()});
 if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
