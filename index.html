@@ -465,7 +465,7 @@ async function doSearch(){
         "anthropic-dangerous-direct-browser-access":"true"
       },
       body:JSON.stringify({
-        model:"claude-sonnet-4-20250514",
+        model:"claude-sonnet-4-6",
         max_tokens:4000,
         system:`Tu es un assistant de veille emploi spécialisé dans les secteurs transport, mobilité, SIG et cartographie en France. Recherche des offres d'emploi actuelles sur les job boards publics (France Travail, APEC, Welcome to the Jungle, Indeed, LinkedIn). Retourne UNIQUEMENT un JSON valide sans markdown sans backtick. Format : {"offers":[{"title":"","company":"","location":"","salary":"","contractType":"CDI|CDD|Freelance|Stage|Alternance","description":"","url":"","source":"France Travail|APEC|Welcome to the Jungle|Indeed|LinkedIn|Autre","datePosted":""}],"searchInfo":""}`,
         tools:[{"type":"web_search_20250305","name":"web_search"}],
